@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telphone=no, email=no, address=no" >
+    <link rel="stylesheet" href="App/Content/css/style.css">
+    <link rel="stylesheet" href="App/Content/fonts3/iconfont.css">
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <a href="##"></a>
+            <a href="##">公司</a>
+            <a href="##">
+                <i class="icon iconfont icon-fangdajing"></i>
+            </a>
+        </header>
+        <section class="scroll"> 
+            <nav>
+                <a href="##">
+                    <span>融资</span>
+                    <i class="icon iconfont icon-angle-down"></i>
+                </a>
+                <a href="##">
+                    <span>规模</span>
+                    <i class="icon iconfont icon-angle-down"></i>
+                </a>
+                <a href="##">
+                    <span>行业</span>
+                    <i class="icon iconfont icon-angle-down"></i>
+                </a>
+            </nav>
+            <div class="box">
+                <dl>
+                    <dt><img src="App/Content/img/1.png" alt=""></dt>
+                    <dd>
+                        <h3>百度</h3>
+                        <p>北京市海淀区西北旺</p>
+                        <p>互联网 | 已上市 | 10000人以上</p>
+                        <h5>
+                            热招：
+                            <span>前端工程师</span>
+                            等2382个职位
+                        </h5>
+                        <i class="icon iconfont icon-angle-right"></i>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt><img src="App/Content/img/2.png" alt=""></dt>
+                    <dd>
+                        <h3>北京来为科技</h3>
+                        <p>北京市昌平区沙河</p>
+                        <p>IT软件 | 微融资 | 100-499人</p>
+                        <h5>
+                            热招：
+                            <span>前端开发工程师</span>
+                            等164个职位
+                        </h5>
+                        <i class="icon iconfont icon-angle-right"></i>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt><img src="App/Content/img/3.png" alt=""></dt>
+                    <dd>
+                        <h3>最库教育</h3>
+                        <p>北京市海淀区五棵松</p>
+                        <p>互联网 | A轮 | 20-99人</p>
+                        <h5>
+                            热招：
+                            <span>web前端开发工程师</span>
+                            等12个职位
+                        </h5>
+                        <i class="icon iconfont icon-angle-right"></i>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt><img src="App/Content/img/4.png" alt=""></dt>
+                    <dd>
+                        <h3>京东集团</h3>
+                        <p>北京市大兴区</p>
+                        <p>互联网 | 已上市 | 10000人以上</p>
+                        <h5>
+                            热招：
+                            <span>webGL</span>
+                            等55个职位
+                        </h5>
+                        <i class="icon iconfont icon-angle-right"></i>
+                    </dd>
+                </dl>
+            </div>
+        </section>
+        <footer>
+            <a href="##">
+                <i class="icon iconfont icon-xuewei"></i>
+                <span>职位</span>
+            </a>
+            <a href="##">
+                <i class="icon iconfont icon-iconhuidaoshouye"></i>
+                <span>公司</span>
+            </a>
+            <a href="##">
+                <i class="icon iconfont icon-xiaoxi"></i>
+                <span>消息</span>
+            </a>
+            <a href="##">
+                <i class="icon iconfont icon-wode"></i>
+                <span>我的</span>
+            </a>
+        </footer>
+    </div>
+    <script>
+        function ajax(url) {
+            return new Promise (function(){
+                var xml = null;
+                var header = function(response,reject){
+                    if(xml.readyState !== 4) return;
+                    if(xml.status === 200) {
+                        response(xml.responseText());
+                    } else {
+                        reject(new Error('error'));
+                    }
+                }
+                if (window.XMLHttpRequest) {
+                    xml = new XMLHttpRequest();
+                } else {
+                    xml = new ActiveXObject('Microsoft.XMLHTTP');
+                }
+                xml.open('GET', url, true);
+                xml.send();
+                xml.onreadystatechange = header;
+            })
+        }
+        ajax('http://localhost:8080/userinfo').then(response){
+            console.log(response);
+        }.catch(err){
+            console.log(err);
+        }
+    </script>
+</body>
+</html>
